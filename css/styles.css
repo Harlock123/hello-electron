@@ -1,0 +1,180 @@
+#rpath {
+    float: right;
+    width: calc((100vw/2) - 30px);
+    --TheRPathHeight: calc(100%)
+}
+
+#lpath {
+    float: left;
+    width: calc((100vw/2) - 30px);
+    --TheLPathHeight: calc(100%)
+}
+
+#TheBody {
+    margin:0px;
+    top: 0px;
+    left: 0px;
+    bottom:calc(100% - 100px);
+    width:100%;
+    background-color: pink;
+    --TheBodyHeight: calc(100vh - 121px)
+}
+
+#buttonarea {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:100px;
+    width:100%;
+    background:rgb(71, 70, 70);
+ }
+
+ .buttonrow1 {
+      float: top;
+      left: 0px;
+      height: 20px;
+      width: 100%;
+ }
+
+ .buttonrow2 {
+   float: top;
+   left: 0px;
+   height: 20px;
+   width: 100%;
+}
+
+.buttonrow3 {
+   float: top;
+   left: 0px;
+   height: 20px;
+   width: 100%;
+}
+
+.buttonrow4 {
+   float: top;
+   left: 0px;
+   height: 20px;
+   width: 100%;
+}
+
+.buttonrow5 {
+   float: top;
+   left: 0px;
+   height: 20px;
+   width: 100%;
+}
+
+.buttonclass {
+   height: 20px;
+   width: calc((100% / 6));
+   float: left;
+}
+
+ 
+ #filearea {
+     width:100%;
+     top: 0px;
+     bottom:100px;
+     left:0px;
+     position: absolute;
+     background-color: darkgray;
+
+ }
+
+ #leftpanelpath {
+   float: left;
+    
+   width: calc((100vw/2) - 25px);
+   height:var(--TheBodyHeight);
+   background-color:yellowgreen;
+   margin: 0px;
+ }
+
+ #leftpanel{
+    float: left;
+    
+    width: calc((100vw/2) - 25px);
+    height:var(--TheBodyHeight);
+    background-color:yellowgreen;
+    margin: 0px;
+ }
+ 
+ #centerpanelpath {
+   float:left;
+   width: 50px;
+   height:var(--TheBodyHeight);
+   background-color: cadetblue;
+ }
+
+ #centerpanel {
+    float:left;
+    width: 50px;
+    height:var(--TheBodyHeight);
+    background-color: cadetblue;
+ }
+
+ #rightpanelpath {
+   float: right; 
+    
+   width:  calc((100vw/2) - 25px);
+   height: var(--TheBodyHeight);
+   background-color:cornsilk;
+   margin: 0px;
+ }
+
+ #rightpanel {
+    float: right; 
+    
+    width:  calc((100vw/2) - 25px);
+    height: var(--TheBodyHeight);
+    background-color:cornsilk;
+    margin: 0px;
+ }
+
+ #leftcanvas {
+    width:100%;
+    height: var(--TheBodyHeight);
+
+ }
+
+ #rightcanvas {
+    width:100%;
+    height: var(--TheBodyHeight);
+ }
+
+ .LCTDataGrid {
+    --GridHeaderBackColor: orange;
+    --GridHeaderForeColor: black;
+    --GridHeaderOutlineColor: grey;
+    --GridHeaderFont: 11pt Arial;
+    --GridHeader:['Type','File/Folder Name','File Size','Creation Date'];
+    --TitleBackColor: #4e4e8b;
+    --TitleForeColor: white;
+    --TitleFont: 12pt Arial;
+    --Title: File/Folder Panel;
+    --TitleVisible: False;
+
+    --GridRows: [
+    ['FILE','Sample File Name','100 kb','07/12/1966'],
+    ['FILE','Sample File Name','100 kb','07/12/1966'],
+    ['FILE','Sample File Name','100 kb','07/12/1966'],
+    ['FILE','Sample File Name','100 kb','07/12/1966'],
+    ['FILE','Sample File Name','100 kb','07/12/1966'],
+    ['FILE','Sample File Name','100 kb','07/12/1966'],
+    ['FILE','Sample File Name','100 kb','07/12/1966']
+    ];
+    --CellFont: 10pt Courier;
+    --CellBackColor: White;
+    --CellForeColor: Black;
+    --CellOutlineColor: lightblue;
+    --CellHighlightBackColor: #d3d3d3;
+
+    --OutlineOn: True;
+    --OutlineColor: Black;
+
+    --SliderForeColor: black;
+    --SliderBackColor: yellow;
+    --SliderThickness: 10;
+ }
+
+

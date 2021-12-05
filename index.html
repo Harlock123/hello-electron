@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang='en'>
+   <head>
+      <meta charset = "UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/styles.css" />
+      <title>Opus Tool experimental</title>
+   </head>
+   
+   <body  id='TheBody'>
+      <script src="scripts/jquery-1.10.2.min.js"></script>
+      <script src="scripts/LCTDataGrid.js"></script>
+     
+      <span id='filearea'>
+         
+         <div>
+            <input type='text' id='lpath' aria-label='The Left Panels Path Spec'>
+            <input type='text' id='rpath' aria-label='The Right Panels Path Spec'>
+         </div>
+
+         <div id='leftpanel'>
+            <span>
+               <canvas id='leftcanvas' class="LCTDataGrid"></canvas>
+            </span>
+         </div>
+
+         <div id='centerpanel'>
+            <span>
+               buttons<br>
+               go<br>
+               here<br>
+            </span>
+         </div>
+         
+         <div id='rightpanel'>
+            <span>
+               <canvas id='rightcanvas' class="LCTDataGrid"></canvas>
+            </span>
+         </div>
+      </span>
+      <!--  <h1>Hello Electron!</h1>
+      We are using node
+      <script>document.write(process.versions.node)</script>,
+      Chrome
+      <script>document.write(process.versions.chrome)</script>,
+      and Electron
+      <script>document.write(process.versions.electron)</script>.
+      <br>
+      ZLIB
+      <script>document.write(process.versions.zlib)</script>
+      <br>
+      PLATFORM
+      <script>document.write(process.platform)</script> Version
+      <script>document.write(process.getSystemVersion())</script>
+      <br>
+      Hello <span id="UNAMESPAN"></span> 
+      -->
+
+      <div id='buttonarea'>
+         <div id='brow1' class='buttonrow1'>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+         </div>
+         <div id='brow2' class='buttonrow2'>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+         </div>
+         <div id='brow3' class='buttonrow3'>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+         </div>
+         <div id='brow4' class='buttonrow4'>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+         </div>
+         <div id='brow5' class='buttonrow5'>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+            <button class='buttonclass' onclick="TestButtonHandler();">click me</button>
+         </div>
+         
+      </div>
+
+      <script src="myapp.js"></script> 
+     
+   </body>
+</html>
