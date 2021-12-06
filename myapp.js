@@ -176,10 +176,10 @@ function POPGridWithFiles (theGrid, Path) {
         }
         
     });
-
+    
     theGrid.GridRows = thefiles;
+    
     theGrid.FillCanvas();
-
 
 }
 
@@ -244,14 +244,24 @@ function HandleLeftGridDoubleClick(e) {
 
 }
 
-function TestButtonHandler()
+function RootSysHandler()
 {
-    POPGridWithFiles(LDG,'C:/windows/'); 
-    POPGridWithFiles(RDG,'./');
+    if (isWin)
+    {
+        POPGridWithFiles(LDG,'C:/');
+        POPGridWithFiles(RDG,os.homedir() + "/");
 
-    document.getElementById('lpath').value = "C:/windows/";
-    document.getElementById('rpath').value = "./";
+        lp.value = "C:/";
+        rp.value = os.homedir() + "/";
+    }
+    else
+    {
+        POPGridWithFiles(LDG,'/');
+        POPGridWithFiles(RDG,os.homedir() + "/");
 
+        lp.value = "/";
+        rp.value = os.homedir() + "/";
+    }
 }
 
 //console.log(os.userInfo());
@@ -277,4 +287,9 @@ var LDG = new LCTDataGrid(lcvs);
 
 RDG.FillCanvas();
 LDG.FillCanvas();
+
+var isWin = process.platform === "win32";
+var isMac = process.platform === "darwin";
+var isLin = process.platform === "linux";
+
 
