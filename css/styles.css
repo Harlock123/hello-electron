@@ -1,13 +1,36 @@
-#rpath {
+.btnclass {
+   padding:0;
+   margin:0;
+   border:0;
+}
+
+.pathclass {
+   width: calc((100vw/2) - 60px);
+}
+
+#rpath1 {
     float: right;
     width: calc((100vw/2) - 30px);
+    height: 20px;
     --TheRPathHeight: calc(100%)
 }
 
-#lpath {
+#lpath1 {
     float: left;
     width: calc((100vw/2) - 30px);
     --TheLPathHeight: calc(100%)
+}
+#lpathspan {
+   float: left;
+   width: calc((100vw/2) - 30px);
+   height: 20px;
+   --TheLPathHeight: calc(100%)
+}
+#rpathspan {
+   float: right;
+   width: calc((100vw/2) - 30px);
+   height: 20px;
+   --TheLPathHeight: calc(100%)
 }
 
 #TheBody {
@@ -92,8 +115,9 @@
 
  #leftpanel{
     float: left;
+    padding:2px;
     
-    width: calc((100vw/2) - 25px);
+    width: calc((100vw/2) - 29px);
     height:var(--TheBodyHeight);
     background-color:yellowgreen;
     margin: 0px;
@@ -108,6 +132,7 @@
 
  #centerpanel {
     float:left;
+    
     width: 50px;
     height:var(--TheBodyHeight);
     background-color: cadetblue;
@@ -124,24 +149,30 @@
 
  #rightpanel {
     float: right; 
+    padding:2px;
     
-    width:  calc((100vw/2) - 25px);
+    width:  calc((100vw/2) - 29px);
     height: var(--TheBodyHeight);
     background-color:cornsilk;
     margin: 0px;
  }
 
  #leftcanvas {
-    width:100%;
+    width: 100%;
     height: var(--TheBodyHeight);
 
  }
 
  #rightcanvas {
-    width:100%;
+    width: 100%;
     height: var(--TheBodyHeight);
  }
 
+ .filegridclass {
+    width: 100%;
+    height: 100%;
+ }
+ 
  .LCTDataGrid {
     --GridHeaderBackColor: orange;
     --GridHeaderForeColor: black;

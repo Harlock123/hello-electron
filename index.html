@@ -14,14 +14,25 @@
       <span id='filearea'>
          
          <div>
-            <input type='text' id='lpath' aria-label='The Left Panels Path Spec'>
-            <input type='text' id='rpath' aria-label='The Right Panels Path Spec'>
+            <span id='lpathspan'>
+               <button class='btnclass'><img width="16" height="16" 
+                  onclick='lpathback();' src='assets/images/left.png' alt='<'> </button> 
+               <input class='pathclass' type='text' id='lpath' aria-label='The Left Panels Path Spec'>
+            </span>
+
+            <span id='rpathspan'>
+               <button class='btnclass'><img width="16" height="16" 
+                  onclick='rpathback();' src='assets/images/left.png' alt='<'> </button> 
+               <input class='pathclass' type='text' id='rpath' aria-label='The Right Panels Path Spec'>
+            </span>
+            
+           
          </div>
 
          <div id='leftpanel'>
-            <span>
+            <div class='filegridclass'>
                <canvas id='leftcanvas' class="LCTDataGrid"></canvas>
-            </span>
+            </div>
          </div>
 
          <div id='centerpanel'>
@@ -33,9 +44,9 @@
          </div>
          
          <div id='rightpanel'>
-            <span>
+            <div class='filegridclass' >
                <canvas id='rightcanvas' class="LCTDataGrid"></canvas>
-            </span>
+            </div>
          </div>
       </span>
       <!--  <h1>Hello Electron!</h1>
@@ -59,43 +70,43 @@
       <div id='buttonarea'>
          <div id='brow1' class='buttonrow1'>
             <button class='buttonclass' onclick="RootSysHandler();" >Root - Home</button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
          </div>
          <div id='brow2' class='buttonrow2'>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
          </div>
          <div id='brow3' class='buttonrow3'>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
          </div>
          <div id='brow4' class='buttonrow4'>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
          </div>
          <div id='brow5' class='buttonrow5'>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
-            <button class='buttonclass' ></button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
+            <button class='buttonclass' >.</button>
          </div>
          
       </div>

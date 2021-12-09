@@ -3,6 +3,8 @@ const url = require('url')
 const path = require('path')
 const fs = require('fs')
 const os = require('os') 
+const ndisk = require('node-disk-info')
+
 
 const glob = require("glob-electron")
 
@@ -192,6 +194,65 @@ function lpathkeyhandler(e)
     }
 }
 
+function lpathback(e)
+{
+    let cp = lp.value;
+    var retval = "";
+
+    if (isWin)
+    {
+        var ma = cp.split("\\");
+        for(let i=0;i<ma.length-2;i++)
+        {
+            retval += ma[i] + "\\";
+        }
+
+    }
+    else
+    {
+        var ma = cp.split("/");
+        for(let i=0;i<ma.length-2;i++)
+        {
+            retval += ma[i] + "/";
+        }
+
+    }
+
+    lp.value = retval;
+
+    POPGridWithFiles(LDG,lp.value);
+
+}
+
+function rpathback(e)
+{
+    let cp = rp.value;
+    var retval = "";
+
+    if (isWin)
+    {
+        var ma = cp.split("\\");
+        for(let i=0;i<ma.length-2;i++)
+        {
+            retval += ma[i] + "\\";
+        }
+
+    }
+    else
+    {
+        var ma = cp.split("/");
+        for(let i=0;i<ma.length-2;i++)
+        {
+            retval += ma[i] + "/";
+        }
+
+    }
+
+    rp.value = retval;
+
+    POPGridWithFiles(RDG,rp.value);
+}
+
 function rpathkeyhandler(e)
 {
     if (e.code == 'Enter' || e.code == 'numpadenter')
@@ -209,9 +270,17 @@ function HandleRightGridDoubleClick(e) {
 
     if (typ == "DIR")
     {
-        curpath += fil + "/" // here we will have to do some env checking
-        rp.value = curpath;
         
+        if (isWin)
+        {
+            curpath += fil + "\\" // here we will have to do some env checking
+            rp.value = curpath;
+        }
+        else
+        {
+            curpath += fil + "/" // here we will have to do some env checking
+            rp.value = curpath;
+        }
         POPGridWithFiles(RDG,rp.value);
 
     }
@@ -231,8 +300,16 @@ function HandleLeftGridDoubleClick(e) {
 
     if (typ == "DIR")
     {
-        curpath += fil + "/" // here we will have to do some env checking
-        lp.value = curpath;
+        if (isWin)
+        {
+            curpath += fil + "\\" // here we will have to do some env checking
+            lp.value = curpath;
+        }
+        else
+        {
+            curpath += fil + "/" // here we will have to do some env checking
+            lp.value = curpath;
+        }
         
         POPGridWithFiles(LDG,lp.value);
 
@@ -248,11 +325,11 @@ function RootSysHandler()
 {
     if (isWin)
     {
-        POPGridWithFiles(LDG,'C:/');
-        POPGridWithFiles(RDG,os.homedir() + "/");
+        POPGridWithFiles(LDG,'C:\\');
+        POPGridWithFiles(RDG,os.homedir() + "\\");
 
-        lp.value = "C:/";
-        rp.value = os.homedir() + "/";
+        lp.value = "C:\\";
+        rp.value = os.homedir() + "\\";
     }
     else
     {
@@ -262,6 +339,29 @@ function RootSysHandler()
         lp.value = "/";
         rp.value = os.homedir() + "/";
     }
+}
+
+function printResults(title, disks) {
+
+    console.log(`============ ${title} ==============\n`);
+
+    for (const disk of disks) {
+        console.log('Filesystem:', disk.filesystem);
+        console.log('Blocks:', disk.blocks);
+        console.log('Used:', disk.used);
+        console.log('Available:', disk.available);
+        console.log('Capacity:', disk.capacity);
+        console.log('Mounted:', disk.mounted, '\n');
+    }
+
+}
+
+
+try {
+    const disks = ndisk.getDiskInfoSync();
+    printResults('SYNC WAY', disks);
+} catch (e) {
+    console.error(e);
 }
 
 //console.log(os.userInfo());
