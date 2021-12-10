@@ -162,6 +162,26 @@ function formatDate(date) {
     return [year, month, day].join('-');
 }
 
+function IsFolderReadable(fname)
+{
+    try {
+        var fresults = getFiles(fname);
+        return true;
+    }
+    catch {
+        return false;
+    }
+}
+
+function MakeFullPath(pth, fname) {
+
+    if (isWin)
+        return pth + fname + "\\";
+    else
+        return pth + fn + "/";
+    
+}
+
 function POPGridWithFiles (theGrid, Path) {
     var fresults = getFiles(Path);
 
@@ -171,17 +191,26 @@ function POPGridWithFiles (theGrid, Path) {
 
         if (element.size != 'NaN b')
         {
-            if (element.size == '0.0')
-                thefiles.push([element.type, element.name,"",element.created]);
+
+            if (element.type === 'DIR')
+            {
+                if (IsFolderReadable(MakeFullPath(Path, element.name)))
+                {
+                    thefiles.push([element.type, element.name,"",element.created]);
+                }
+            }
             else
-                thefiles.push([element.type,element.name,element.size,element.created]);
+            {
+                if (element.size == '0.0')
+                    thefiles.push([element.type, element.name,"",element.created]);
+                else
+                    thefiles.push([element.type,element.name,element.size,element.created]);
+            }
         }
         
     });
     
-    theGrid.GridRows = thefiles;
-    
-    theGrid.FillCanvas();
+    theGrid.SetGridRows(thefiles);
 
 }
 
@@ -321,6 +350,20 @@ function HandleLeftGridDoubleClick(e) {
 
 }
 
+function HandleRightGridMousedOver(e) {
+
+    document.getElementById('leftpanel').style.backgroundColor = 'grey';
+    document.getElementById('rightpanel').style.backgroundColor = 'red';
+    
+
+}
+
+function HandleLeftGridMousedOver(e) {
+    document.getElementById('leftpanel').style.backgroundColor = 'red';
+    document.getElementById('rightpanel').style.backgroundColor = 'grey';
+    
+}
+
 function RootSysHandler()
 {
     if (isWin)
@@ -353,9 +396,7 @@ function printResults(title, disks) {
         console.log('Capacity:', disk.capacity);
         console.log('Mounted:', disk.mounted, '\n');
     }
-
 }
-
 
 try {
     const disks = ndisk.getDiskInfoSync();
@@ -375,6 +416,9 @@ var lcvs = document.getElementById('leftcanvas');
 rcvs.addEventListener('CELLDOUBLECLICKED', HandleRightGridDoubleClick, true);
 lcvs.addEventListener('CELLDOUBLECLICKED', HandleLeftGridDoubleClick, true);
 
+rcvs.addEventListener('MOUSEDOVER',HandleRightGridMousedOver,true);
+lcvs.addEventListener('MOUSEDOVER',HandleLeftGridMousedOver,true);
+
 
 var lp = document.getElementById('lpath');
 var rp = document.getElementById('rpath');
@@ -382,8 +426,11 @@ var rp = document.getElementById('rpath');
 lp.addEventListener('keydown',lpathkeyhandler);
 rp.addEventListener('keydown',rpathkeyhandler);
 
-var RDG = new LCTDataGrid(rcvs);
-var LDG = new LCTDataGrid(lcvs);
+LCTDataGrid: RDG = new LCTDataGrid(rcvs);
+LCTDataGrid: LDG = new LCTDataGrid(lcvs);
+
+RDG.DoConsoleLogging = false;
+LDG.DoConsoleLogging = false;
 
 RDG.FillCanvas();
 LDG.FillCanvas();
