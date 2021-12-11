@@ -178,7 +178,7 @@ function MakeFullPath(pth, fname) {
     if (isWin)
         return pth + fname + "\\";
     else
-        return pth + fn + "/";
+        return pth + fname + "/";
     
 }
 
@@ -210,8 +210,14 @@ function POPGridWithFiles (theGrid, Path) {
         
     });
     
-    theGrid.SetGridRows(thefiles);
+    theGrid.SetGridRows(thefiles.sort((a, b) => 
+            String(a).localeCompare(String(b), 'en', { sensitivity: 'base' })));
+    
 
+}
+
+function CompareTwoElements(a,b) {
+    return String(a).toLocaleLowerCase() - String(b).toLocaleLowerCase();
 }
 
 function lpathkeyhandler(e)
