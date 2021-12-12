@@ -1,9 +1,12 @@
-const {app, BrowserWindow} = require('electron') 
+const {app, BrowserWindow, shell} = require('electron') 
 const url = require('url') 
 const path = require('path')
 const fs = require('fs')
 const os = require('os') 
 const ndisk = require('node-disk-info')
+const child = require('child_process').execFile
+const spawn = require('child_process').spawn
+
 
 
 const glob = require("glob-electron")
@@ -322,6 +325,10 @@ function HandleRightGridDoubleClick(e) {
     else
     {
         // Do some other file handler
+        // lets try to run the file
+        //child.execFile(curpath + fil);
+        //spawn(curpath + fil);
+        shell.openExternal(curpath + fil);
     }
 
 }
@@ -352,6 +359,10 @@ function HandleLeftGridDoubleClick(e) {
     else
     {
         // Do some other file handler
+        // lets try to run the file
+        //child.execFile(curpath + fil);
+        //spawn(curpath + fil);
+        shell.openExternal(curpath + fil);
     }
 
 }
