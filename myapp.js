@@ -337,7 +337,14 @@ function HandleRightGridDoubleClick(e) {
         }
         else
         {
-            shell.openExternal(PTH);
+            if (isWin)
+            {
+                shell.openExternal(PTH);
+            }
+            else
+            {
+                exec('open ' + PTH);
+            }
         }
     }
 
@@ -376,11 +383,18 @@ function HandleLeftGridDoubleClick(e) {
 
         if (isLin)
         {
-            sexec('xdg-open ' + PTH);
+            exec('xdg-open ' + PTH);
         }
         else
         {
-            shell.openExternal(PTH);
+            if (isWin)
+            {
+                shell.openExternal(PTH);
+            }
+            else
+            {
+                exec('open ' + PTH);
+            }
         }
     }
 
