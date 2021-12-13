@@ -4,7 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const os = require('os') 
 const ndisk = require('node-disk-info')
-const child = require('child_process').execFile
+const { exec } = require('child_process')
 const spawn = require('child_process').spawn
 
 
@@ -328,7 +328,17 @@ function HandleRightGridDoubleClick(e) {
         // lets try to run the file
         //child.execFile(curpath + fil);
         //spawn(curpath + fil);
-        shell.openExternal(curpath + fil);
+
+        var PTH = curpath + fil;
+
+        if (isLin)
+        {
+            exec('xdg-open ' + PTH);
+        }
+        else
+        {
+            shell.openExternal(PTH);
+        }
     }
 
 }
@@ -362,7 +372,16 @@ function HandleLeftGridDoubleClick(e) {
         // lets try to run the file
         //child.execFile(curpath + fil);
         //spawn(curpath + fil);
-        shell.openExternal(curpath + fil);
+        var PTH = curpath + fil;
+
+        if (isLin)
+        {
+            sexec('xdg-open ' + PTH);
+        }
+        else
+        {
+            shell.openExternal(PTH);
+        }
     }
 
 }
