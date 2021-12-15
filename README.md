@@ -8,3 +8,7 @@ Runable using
 
 electron ./main.js
 
+or 
+
+npm start
+
